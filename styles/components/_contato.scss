@@ -1,0 +1,89 @@
+@use '../abstract/variaveis';
+@use '../abstract/mixins';
+
+#contatos{
+    @include mixins.margem-central(80%);
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    
+    .contatos-imgs{
+        max-width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-around;
+
+        img{
+            width: 100%;
+
+            &:nth-child(n+2){
+                width: 48%;
+            }
+        }
+    }
+
+    .contatos-form{
+        max-width: 50%;
+        background: variaveis.$gradient-primaria;
+        padding: 2rem 3rem;
+        border-radius: 2rem;
+
+        .titulo{
+            @include mixins.ff-fs-cl(variaveis.$ft-titulos,1.9rem,variaveis.$cor-secundaria);
+        }
+
+        .infos{
+            @include mixins.ff-fs-cl(variaveis.$ft-textos,1.2rem,variaveis.$cor-primaria);
+        }
+
+        .inputs{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+            align-self: stretch;
+
+            .form-group{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+
+                label{
+                    @extend .infos;
+                    font-weight: bold; 
+                }
+
+                input{
+                    border-radius: 25px;
+                    padding: 1rem;
+                    border: none;
+                }
+                textarea{
+                    @extend input
+                }
+            }
+
+            .btn{
+                align-self: center;
+                width: 60%;
+                border-radius: 25px;
+                padding: 1rem;
+                border: none;
+                color: white;
+                font-size: 1.2rem;
+                font-weight: 700;
+                background: variaveis.$cor-secundaria;
+                cursor: pointer;
+                transition: 0.5s;
+
+                &:hover{
+                    transition: 0.5s;
+                    color: variaveis.$cor-secundaria;
+                    background: variaveis.$cor-default;
+                }
+            }
+        }
+    }
+}

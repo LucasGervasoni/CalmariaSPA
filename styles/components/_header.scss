@@ -1,0 +1,87 @@
+@use '../abstract/variaveis';
+@use '../abstract/mixins';
+
+header {
+    background: variaveis.$gradient-primaria;
+    padding: 2rem;
+    
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.6rem;
+        
+        .linha{
+            @include mixins.margem-central(80%);
+            border: 1px solid variaveis.$cor-primaria;
+        }
+
+         ul{
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+
+             li{
+
+                 a{
+                    text-decoration: none;
+                    @include mixins.ff-fs-cl(variaveis.$ft-textos,1.3rem,variaveis.$cor-primaria);
+                    font-weight: 500;
+
+                    &:hover{
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    #home{
+        max-width: 1040px;
+        @include mixins.margem-central(80%);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .textos-home{
+            max-width: 464px;
+
+            h1{
+                @include mixins.ff-fs-cl(variaveis.$ft-titulos,42px,variaveis.$cor-primaria);
+                margin-bottom: 2rem;
+
+                span{
+                    color: variaveis.$cor-secundaria;
+                }
+            }
+
+            button{
+                width: 280px;
+                height: 66px;
+                background-color: variaveis.$cor-secundaria;
+                @include mixins.ff-fs-cl(variaveis.$ft-textos,1.3rem,#FFF);
+                font-weight: 700;
+                border: none;
+                border-radius: 3rem;
+                cursor: pointer;
+                transition: ease-in .5s;
+
+                &:hover{
+                    transition: ease-out .5s;
+                    color: variaveis.$cor-secundaria;
+                    background-color: variaveis.$cor-default;
+                }
+            }
+        }
+
+        .img-home{
+            width: 474px;
+
+            img{
+                width: 100%;
+            }
+        }
+    }
+}

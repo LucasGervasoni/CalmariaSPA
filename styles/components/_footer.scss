@@ -1,0 +1,15 @@
+@use '../abstract/variaveis';
+@use '../abstract/mixins';
+
+footer{
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: variaveis.$gradient-primaria;
+    height: 80px;
+
+    small{
+        @include mixins.ff-fs-cl(variaveis.$ft-textos,1rem,variaveis.$cor-primaria);
+    }
+}
